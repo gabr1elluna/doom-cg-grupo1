@@ -83,16 +83,30 @@ static bool nearestLava(const Level& level, float px, float pz, float& outX, flo
 
 // Cria/atualiza arrays de sources de inimigos conforme quantidade no level
 static void ensureEnemySources(AudioSystem& a, const Level& level) {
-    if (!a.ok || a.bufEnemy == 0) return;
+    if (!a.ok) return;
 
     const size_t need = level.enemies.size();
     if (a.srcEnemies.size() == need) return;
 
-    for (ALuint s : a.srcEnemies) stopIf(s, a.engine);
+    for (ALuint s : a.srcEnemies)
+        stopIf(s, a.engine);
+
     a.srcEnemies.assign(need, 0);
 
     for (size_t i = 0; i < need; ++i) {
-        ALuint s = a.engine.createSource(a.bufEnemy, true);
+        
+        int type = level.enemies[i].type;
+
+        ALuint chosenBuf = a.bufEnemyType[type];
+
+        // Fallback para o som padrão se não existir
+        if (!chosenBuf)
+            chosenBuf = a.bufEnemy;
+
+        if (!chosenBuf)
+            continue;
+
+        ALuint s = a.engine.createSource(chosenBuf, true);
         if (!s) continue;
 
         alSourcei(s, AL_SOURCE_RELATIVE, AL_FALSE);
@@ -176,6 +190,13 @@ void audioInit(AudioSystem& a, const Level& level) {
 
     a.bufEnemy = a.engine.loadWav("assets/audio/enemy_mono.wav");
     if (!a.bufEnemy) a.bufEnemy = a.engine.loadWav("assets/audio/enemy.wav");
+
+    // ===== NOVO: sons específicos por tipo =====
+    a.bufEnemyType[0] = a.engine.loadWav("assets/audio/encounter_E.wav");
+    a.bufEnemyType[1] = a.engine.loadWav("assets/audio/encounter_F.wav");
+    a.bufEnemyType[2] = a.engine.loadWav("assets/audio/encounter_G.wav");
+    a.bufEnemyType[3] = a.engine.loadWav("assets/audio/encounter_I.wav");
+    a.bufEnemyType[4] = a.engine.loadWav("assets/audio/encounter_J.wav");
 
     a.bufReload = a.engine.loadWav("assets/audio/reload_mono.wav");
     if (!a.bufReload) a.bufReload = a.engine.loadWav("assets/audio/reload.wav");
