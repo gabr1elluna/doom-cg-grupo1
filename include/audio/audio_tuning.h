@@ -7,7 +7,7 @@ namespace AudioTuning
 {
     // Master geral (multiplica tudo)
     //static constexpr float MASTER = 1.0f; muito alto caralho
-    static constexpr float MASTER = 0.25f;
+    static constexpr float MASTER = 0.4f;
 
     // ===== 2D (na "cabeça") =====
     // Aumentar o volume do som ambiente
