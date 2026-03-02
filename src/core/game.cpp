@@ -207,7 +207,6 @@ bool gameInit(const char *mapPath)
     g.r.texChao1 = gAssets.texChao1;
     g.r.texChao2 = gAssets.texChao2;
     g.r.texChao3 = gAssets.texChao3;
-    g.r.texChao4 = gAssets.texChao4;
     g.r.texParede1 = gAssets.texParede1;
     g.r.texParede2 = gAssets.texParede2;
     g.r.texParede3 = gAssets.texParede3;

@@ -74,8 +74,8 @@ bool loadAssets(GameAssets &a)
     a.texHandWithFunny = carregaTextura("assets/handWithFunny.png");
     a.texTux = carregaTextura("assets/tux.png");
 
-    if (!a.texChao1 || !a.texChao2 || !a.texChao3 || !a.texChao4 || !a.texParede1 || 
-        !a.texParede2 || !a.texParede3 || !a.texSangue || !a.texLava || !a.progSangue ||
+    if (!a.texChao1 || !a.texChao2 || !a.texChao3 || !a.texParede1 || 
+        !a.texParede2 || !a.texParede3 || !a.texSangue || !a.progSangue ||
         !a.progLava || !a.texHealth || !a.texGunDefault || !a.texGunFire1 ||
         !a.texGunFire2 || !a.texSkydome || !a.texSkydome2 || !a.texSkydome3 || !a.texGunReload1 || !a.texGunReload2 ||
         !a.texDamage || !a.texKey || !a.texHealthOverlay || !a.texEnemies[0] ||

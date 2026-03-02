@@ -11,7 +11,6 @@ struct GameAssets
     GLuint texChao1 = 0;
     GLuint texChao2 = 0;
     GLuint texChao3 = 0;
-    GLuint texChao4 = 0;
     GLuint texParede1 = 0;
     GLuint texParede2 = 0;
     GLuint texParede3 = 0;
