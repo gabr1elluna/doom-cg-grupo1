@@ -10,6 +10,17 @@
       "cwd": "${workspaceFolder}/build",
       "MIMode": "gdb",
       "miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe"
+      
+      // Linux
+/*
+      "name": "Run DoomLike",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/DoomLike",
+      "preLaunchTask": "Build DoomLike (make)",
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb"
+*/
     }
   ]
 }
